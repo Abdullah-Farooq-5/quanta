@@ -21,12 +21,27 @@ export const checkApiHealth = async () => {
 };
 
 // Fetch glossary terms
-export const fetchGlossaryTerms = async () => {
+export const fetchGlossaryTerms = async (page = 1, perPage = 10) => {
   try {
-    const response = await api.get('/glossary');
-    return response.data;
+    const response = await fetch(`/api/glossary?page=${page}&per_page=${perPage}`);
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    
+    const data = await response.json();
+    
+    return {
+      data: data.data || [], // The glossary terms
+      pagination: data.pagination || {
+        current_page: page,
+        total_pages: 1,
+        total_items: data.data?.length || 0
+      },
+      success: data.success
+    };
   } catch (error) {
-    console.error('Failed to fetch glossary terms:', error);
+    console.error("Error fetching glossary terms:", error);
     throw error;
   }
 };

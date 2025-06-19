@@ -6,18 +6,28 @@ const GlossaryPage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
+  
+  // Pagination states
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const [totalItems, setTotalItems] = useState(0);
+  const termsPerPage = 10;
 
   useEffect(() => {
     const loadGlossaryTerms = async () => {
       try {
         setIsLoading(true);
-        const response = await fetchGlossaryTerms();
+        // Update API call to include pagination parameters
+        const response = await fetchGlossaryTerms(currentPage, termsPerPage);
+        
         if (response && response.data) {
-          // Sort terms alphabetically
-          const sortedTerms = response.data.sort((a, b) => 
-            a.term.localeCompare(b.term)
-          );
-          setTerms(sortedTerms);
+          setTerms(response.data);
+          
+          // Set pagination data from response
+          if (response.pagination) {
+            setTotalPages(response.pagination.total_pages);
+            setTotalItems(response.pagination.total_items);
+          }
         } else {
           setError('Invalid response format');
         }
@@ -29,13 +39,50 @@ const GlossaryPage = () => {
     };
 
     loadGlossaryTerms();
-  }, []);
+  }, [currentPage]); // Reload when page changes
+
+  // When searching, reset to first page
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchQuery]);
 
   // Filter terms based on search query
-  const filteredTerms = terms.filter(term => 
-    term.term.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    term.definition.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const filteredTerms = searchQuery 
+    ? terms.filter(term => 
+        term.term.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        term.definition.toLowerCase().includes(searchQuery.toLowerCase())
+      )
+    : terms;
+
+  // Pagination controls
+  const paginate = (pageNumber) => {
+    // Ensure pageNumber is within valid range
+    if (pageNumber >= 1 && pageNumber <= totalPages) {
+      setCurrentPage(pageNumber);
+      // Scroll to top when changing pages
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  // Generate page numbers for pagination
+  const getPageNumbers = () => {
+    const pageNumbers = [];
+    const maxPagesToShow = 5; // Show at most 5 page numbers
+    
+    let startPage = Math.max(1, currentPage - Math.floor(maxPagesToShow / 2));
+    let endPage = startPage + maxPagesToShow - 1;
+    
+    if (endPage > totalPages) {
+      endPage = totalPages;
+      startPage = Math.max(1, endPage - maxPagesToShow + 1);
+    }
+    
+    for (let i = startPage; i <= endPage; i++) {
+      pageNumbers.push(i);
+    }
+    
+    return pageNumbers;
+  };
 
   return (
     <div className="bg-gray-50 min-h-screen py-12">
@@ -75,7 +122,7 @@ const GlossaryPage = () => {
         ) : (
           <>
             <p className="mb-6 text-gray-600">
-              {filteredTerms.length} {filteredTerms.length === 1 ? 'term' : 'terms'} found
+              {searchQuery ? filteredTerms.length : totalItems} {(searchQuery ? filteredTerms.length : totalItems) === 1 ? 'term' : 'terms'} found
             </p>
             <div className="space-y-6">
               {filteredTerms.length > 0 ? (
@@ -101,6 +148,51 @@ const GlossaryPage = () => {
                 </div>
               )}
             </div>
+            
+            {/* Pagination controls - only show if not searching and have multiple pages */}
+            {!searchQuery && totalPages > 1 && (
+              <div className="flex justify-center mt-10">
+                <nav className="inline-flex rounded-md shadow">
+                  <button
+                    onClick={() => paginate(currentPage - 1)}
+                    disabled={currentPage === 1}
+                    className={`relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium rounded-l-md ${
+                      currentPage === 1 
+                        ? 'text-gray-300 cursor-not-allowed' 
+                        : 'text-gray-700 hover:bg-gray-50'
+                    }`}
+                  >
+                    Previous
+                  </button>
+                  
+                  {getPageNumbers().map(number => (
+                    <button
+                      key={number}
+                      onClick={() => paginate(number)}
+                      className={`relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium ${
+                        currentPage === number
+                          ? 'z-10 bg-blue-50 border-blue-500 text-blue-600'
+                          : 'bg-white text-gray-700 hover:bg-gray-50'
+                      }`}
+                    >
+                      {number}
+                    </button>
+                  ))}
+                  
+                  <button
+                    onClick={() => paginate(currentPage + 1)}
+                    disabled={currentPage === totalPages}
+                    className={`relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium rounded-r-md ${
+                      currentPage === totalPages 
+                        ? 'text-gray-300 cursor-not-allowed' 
+                        : 'text-gray-700 hover:bg-gray-50'
+                    }`}
+                  >
+                    Next
+                  </button>
+                </nav>
+              </div>
+            )}
           </>
         )}
       </div>

@@ -7,7 +7,7 @@ const AboutPage = () => {
         <div className="bg-white rounded-lg shadow-md p-8 mb-8">
           <h2 className="text-2xl font-semibold text-gray-900 mb-4">Our Mission</h2>
           <p className="text-lg text-gray-700 mb-6">
-            Quantum Pathways is dedicated to making quantum computing accessible to students in Pakistan and around the world. 
+            Quanta is dedicated to making quantum computing accessible to students in Pakistan and around the world. 
             We believe that understanding quantum computing is essential for the next generation of scientists, engineers, and 
             technologists, regardless of their background or geographical location.
           </p>
@@ -50,7 +50,7 @@ const AboutPage = () => {
         <div className="bg-white rounded-lg shadow-md p-8 mb-8">
           <h2 className="text-2xl font-semibold text-gray-900 mb-4">The Team</h2>
           <p className="text-lg text-gray-700 mb-6">
-            Quantum Pathways was created by a team of computer science students from [Your University Name] with a 
+            Quanta was created by a computer science student from NUST with a 
             passion for quantum computing and education.
           </p>
           
@@ -68,7 +68,7 @@ const AboutPage = () => {
                   }}
                 />
               </div>
-              <h3 className="text-lg font-semibold">Your Name</h3>
+              <h3 className="text-lg font-semibold">Abdullah Farooq</h3>
               <p className="text-gray-600">Project Lead</p>
             </div>
             {/* Add more team members as needed with the same structure */}
@@ -87,7 +87,7 @@ const AboutPage = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
               <a href="mailto:contact@quantumpathways.edu" className="text-blue-600 hover:text-blue-800">
-                contact@quantumpathways.edu
+                contact@quanta.edu
               </a>
             </div>
             <div className="flex items-center">
