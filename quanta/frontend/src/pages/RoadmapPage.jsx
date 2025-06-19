@@ -70,21 +70,24 @@ const RoadmapPage = () => {
           name: "Single-Qubit Gates",
           description: "X, Y, Z, H, S, T gates and Bloch sphere representation",
           resources: [
-            { name: "Qiskit Textbook - Single-Qubit Gates", url: "https://qiskit.org/textbook/ch-states/single-qubit-gates.html" }
+            { name: "Qiskit Textbook - Single-Qubit Gates", url: "https://qiskit.org/textbook/ch-states/single-qubit-gates.html" },
+            { name: "Quantum Computing Course - freeCodeCamp.org", url: "https://www.youtube.com/watch?v=tsbCSkvHhMo&t=1386s&pp=ygUNcXVhbnR1bSBnYXRlcw%3D%3D" }
           ]
         },
         {
           name: "Multi-Qubit Gates",
           description: "CNOT, SWAP, Toffoli and their applications",
           resources: [
-            { name: "Qiskit Textbook - Multiple Qubits and Entanglement", url: "https://qiskit.org/textbook/ch-gates/multiple-qubits-entanglement.html" }
+            { name: "Qiskit Textbook - Multiple Qubits and Entanglement", url: "https://qiskit.org/textbook/ch-gates/multiple-qubits-entanglement.html" },
+            { name: "Multi qubits quantum gates", url: "http://youtube.com/watch?v=iMjpZwISIlA" }
           ]
         },
         {
           name: "Circuit Construction",
           description: "Building quantum circuits with gates",
           resources: [
-            { name: "Qiskit Tutorials - Circuit Basics", url: "https://qiskit.org/documentation/tutorials/circuits/01_circuit_basics.html" }
+            { name: "Qiskit Tutorials - Circuit Basics", url: "https://qiskit.org/documentation/tutorials/circuits/01_circuit_basics.html" },
+            { name: "Quantum Circuit Design", url: "https://www.youtube.com/watch?v=uD85zDIomdU&pp=ygUccXVhbnR1bSBjaXJjdWl0IGNvbnN0cnVjdGlvbg%3D%3D" }
           ]
         }
       ]
@@ -98,21 +101,24 @@ const RoadmapPage = () => {
           name: "Deutsch-Jozsa Algorithm",
           description: "Determining if a function is constant or balanced",
           resources: [
-            { name: "Qiskit Textbook - Deutsch-Jozsa Algorithm", url: "https://qiskit.org/textbook/ch-algorithms/deutsch-jozsa.html" }
+            { name: "Qiskit Textbook - Deutsch-Jozsa Algorithm", url: "https://qiskit.org/textbook/ch-algorithms/deutsch-jozsa.html" },
+            { name: "Deutsch-Jozsa Algorithm explained", url: "https://www.youtube.com/watch?v=QcK0GK7DUh8&pp=ygUXRGV1dHNjaC1Kb3pzYSBBbGdvcml0aG0%3D" }
           ]
         },
         {
           name: "Grover's Algorithm",
           description: "Quadratic speedup for searching unsorted databases",
           resources: [
-            { name: "Qiskit Textbook - Grover's Algorithm", url: "https://qiskit.org/textbook/ch-algorithms/grover.html" }
+            { name: "Qiskit Textbook - Grover's Algorithm", url: "https://qiskit.org/textbook/ch-algorithms/grover.html" },
+            { name: "Grover's Algorithm", url: "https://www.youtube.com/watch?v=RQWpF2Gb-gU&pp=ygUMZ3JvdmVycyBhbGdv" }
           ]
         },
         {
           name: "Shor's Algorithm",
           description: "Exponential speedup for integer factorization",
           resources: [
-            { name: "Qiskit Textbook - Shor's Algorithm", url: "https://qiskit.org/textbook/ch-algorithms/shor.html" }
+            { name: "Qiskit Textbook - Shor's Algorithm", url: "https://qiskit.org/textbook/ch-algorithms/shor.html" },
+            { name: "Shor's Algorithm ", url: "https://www.youtube.com/watch?v=dONacVnW1Ng&pp=ygUQc2hvcidzIGFsZ29yaXRobQ%3D%3D" }
           ]
         }
       ]
