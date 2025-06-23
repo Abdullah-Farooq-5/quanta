@@ -15,9 +15,9 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Connect</h3>
             <ul className="space-y-2 text-sm">
-              <li><a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="hover:text-blue-300">GitHub</a></li>
-              <li><a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" className="hover:text-blue-300">LinkedIn</a></li>
-              <li><a href="mailto:your.email@example.com" className="hover:text-blue-300">Email</a></li>
+              <li><a href="https://github.com/Abdullah-Farooq-5" target="_blank" rel="noopener noreferrer" className="hover:text-blue-300">GitHub</a></li>
+              <li><a href="https://linkedin.com/in/abdullah-farooq-8b00881b6?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" className="hover:text-blue-300">LinkedIn</a></li>
+              <li><a href="mailto:chaudharyabdullah387@gmail.com" className="hover:text-blue-300">Email</a></li>
             </ul>
           </div>
         </div>

@@ -59,7 +59,7 @@ const AboutPage = () => {
               <div className="w-32 h-32 rounded-full bg-gray-200 mx-auto mb-4">
                 {/* Profile image would go here */}
                 <img 
-                  src="/assets/images/team/your-photo.jpg" 
+                  src="\src\assets\team\abdullah.jpg" 
                   alt="Team Member" 
                   className="w-full h-full object-cover rounded-full"
                   onError={(e) => {
@@ -86,15 +86,15 @@ const AboutPage = () => {
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
-              <a href="mailto:contact@quantumpathways.edu" className="text-blue-600 hover:text-blue-800">
-                contact@quanta.edu
+              <a href="mailto:chaudharyabdullah387@gmail.com" className="text-blue-600 hover:text-blue-800">
+                chaudharyabdullah387@gmail.com
               </a>
             </div>
             <div className="flex items-center">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
               </svg>
-              <a href="https://github.com/yourusername/quantum-pathways" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">
+              <a href="https://github.com/Abdullah-Farooq-5" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">
                 GitHub Repository
               </a>
             </div>
@@ -102,7 +102,7 @@ const AboutPage = () => {
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
               </svg>
-              <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">
+              <a href="https://linkedin.com/in/abdullah-farooq-8b00881b6?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">
                 Connect on LinkedIn
               </a>
             </div>
