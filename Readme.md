@@ -34,9 +34,11 @@ cd quanta/frontend
 npm install
 npm run dev
 
+```
 #### Backend
 
 ```bash
 cd quanta/backend
 python init_db.py
-python app.py
+python app.py'
+```
