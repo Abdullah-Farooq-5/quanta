@@ -1,44 +1,90 @@
 # Quanta: Quantum Computing Learning Platform
 
-A comprehensive platform designed to make quantum computing accessible to students in Pakistan and beyond.
-
-## Features
-
-- 📚 **Structured Learning Path**: Progressive quantum computing curriculum
-- 🔬 **Interactive Quantum Circuit Simulator**: Build and run quantum circuits in your browser
-- 📖 **Quantum Computing Glossary**: Searchable database of quantum terms and concepts
-- ✅ **Knowledge Assessment**: Quizzes to test understanding at different levels
-- 🧪 **Visual Quantum Demonstrations**: Interactive visualizations of quantum phenomena
+Quanta is a learning platform for understanding quantum computing through guided content, quizzes, glossary terms, and circuit simulation.
 
 ## Tech Stack
 
-- **Frontend**: React, TailwindCSS
-- **Backend**: Python, Flask
-- **Quantum Simulation**: Qiskit
-- **Database**: MongoDB
+- Frontend: React + Vite + TailwindCSS
+- Backend: Python + Flask
+- Quantum simulation: Qiskit
+- Database: MongoDB
 
-## Getting Started
+## Prerequisites
 
-### Prerequisites
+Install these before starting:
 
-- Node.js and npm
-- Python 3.8+
-- MongoDB
+- Node.js 20+ and npm
+- Python 3.10+
+- MongoDB (running locally or remotely)
 
-### Installation
+## Setup After Cloning
 
-#### Frontend
+From the folder that contains this repository:
 
 ```bash
-cd quanta/frontend
+git clone <your-repo-url>
+cd quanta
+```
+
+### 1) Configure and run the backend
+
+Open terminal A:
+
+Windows (PowerShell):
+
+```powershell
+cd backend
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+```
+
+macOS/Linux (bash/zsh):
+
+```bash
+cd backend
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+Create a `.env` file inside `backend/` with:
+
+```env
+MONGO_URI=mongodb://localhost:27017
+```
+
+Initialize seed data and start the API:
+
+```bash
+python init_db.py
+python app.py
+```
+
+Backend runs at: `http://localhost:5000`
+
+### 2) Configure and run the frontend
+
+Open terminal B:
+
+```bash
+cd frontend
 npm install
 npm run dev
-
 ```
-#### Backend
 
-```bash
-cd quanta/backend
-python init_db.py
-python app.py'
-```
+Frontend runs at: `http://localhost:3000`
+
+## Verify Everything Is Working
+
+- Open `http://localhost:3000`
+- Check API health: `http://localhost:5000/api/health`
+
+If frontend shows proxy errors for `/api/*`, backend is not running yet.
+
+## Common Issues
+
+- `npm install` fails on Windows with `ERR_INVALID_ARG_TYPE`:
+	This repo includes `frontend/.npmrc` with a fixed shell path. Re-run `npm install` in `frontend/`.
+- Mongo connection errors:
+	Verify MongoDB is running and `MONGO_URI` in `backend/.env` is correct.
