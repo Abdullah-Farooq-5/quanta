@@ -1,0 +1,143 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
+/* Custom styles that extend Tailwind */
+
+/* Add these animations to your existing CSS */
+
+@keyframes pulse-quantum {
+  0% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.8; }
+}
+
+@keyframes rotate-quantum {
+  from { transform: rotate3d(1, 1, 1, 0deg); }
+  to { transform: rotate3d(1, 1, 1, 360deg); }
+}
+
+.animate-quantum-pulse {
+  animation: pulse-quantum 3s infinite ease-in-out;
+}
+
+.animate-spin-slow {
+  animation: spin 20s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Circuit builder styles */
+.qubit-line {
+  position: relative;
+  height: 2px;
+  background-color: #94a3b8;
+  margin: 20px 0;
+}
+
+.gate-node {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.gate-h { background-color: #3b82f6; color: white; }
+.gate-x { background-color: #ef4444; color: white; }
+.gate-y { background-color: #10b981; color: white; }
+.gate-z { background-color: #8b5cf6; color: white; }
+
+.control-point {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #000;
+  transform: translate(-50%, -50%);
+}
+
+.control-line {
+  position: absolute;
+  width: 2px;
+  height: 40px; /* Will be adjusted via JS */
+  background-color: #000;
+}
+
+/* Code syntax highlighting for explanations */
+.code-block {
+  background-color: #1e293b;
+  color: #e2e8f0;
+  border-radius: 6px;
+  padding: 1rem;
+  overflow-x: auto;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.code-keyword { color: #7dd3fc; }
+.code-string { color: #86efac; }
+.code-number { color: #fca5a5; }
+.code-comment { color: #94a3b8; }
+
+/* Smooth scrolling for page navigation */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Quiz component styles */
+.quiz-option {
+  transition: all 0.2s ease-in-out;
+}
+
+.quiz-option:hover:not(.selected) {
+  transform: translateY(-2px);
+}
+
+/* Custom responsive container for consistent padding */
+.container-custom {
+  width: 100%;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 640px) {
+  .container-custom {
+    max-width: 640px;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .container-custom {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-custom {
+    max-width: 1024px;
+    padding-right: 2rem;
+    padding-left: 2rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container-custom {
+    max-width: 1280px;
+  }
+}
